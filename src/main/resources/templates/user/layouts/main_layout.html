@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head th:replace="~{/user/fragments/head.html :: head}">
+    <title>Title</title>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="container">
+            <div class="dot dot-1"></div>
+            <div class="dot dot-2"></div>
+            <div class="dot dot-3"></div>
+        </div>
+    </div>
+    <!-- End preloader -->
+
+    <header th:replace="~{/user/fragments/header.html :: header}"></header>
+
+    <main layout:fragment="content"></main>
+
+    <footer th:replace="~{/user/fragments/footer.html :: footer}"></footer>
+
+    <!-- progress -->
+    <div id="progress">
+        <span id="progress-value"><i class="fa-solid fa-arrow-up"></i></span>
+    </div>
+
+    <div th:replace="~{/user/fragments/script.html :: script}"></div>
+</body>
+
+</html>

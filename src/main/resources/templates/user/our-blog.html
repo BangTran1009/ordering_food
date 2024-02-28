@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/user/layouts/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordering Food Website</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <section class="banner" style="background-image:url(/user/img/background.png)">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="title-area-data">
+                        <h2>Our Blog</h2>
+                        <p>A magical combination that sent aromas to the taste buds</p>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a th:href="@{index.html}"><i class="fa-solid fa-house"></i>Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">News</li>
+                        <li class="breadcrumb-item active" aria-current="page">Our Blog</li>
+                    </ol>
+                </div>
+                <div class="col-lg-5">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="title-area-img">
+                                <img alt="title-area-img" src="" th:src="@{user/img/title-area-img-1.jpg}">
+                                <img alt="pata" class="pata" src="" th:src="@{user/img/pata.png}">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="title-area-img two">
+                                <img alt="title-area-img" src="" th:src="@{user/img/title-area-img-2.jpg}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gap our-blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="recent-news-two">
+                        <img alt="recent-news-img" src="" th:src="@{user/img/recent-news-6.jpg}">
+                        <div class="recent-news mt-3">
+                            <div>
+                                <a href="#"><span>29 December, 2023</span></a>
+                                <a href="blog-details.html"><h2>Tender fried baby squid with a salt, pepper</h2></a>
+                                <div class="d-flex align-items-center"><img alt="img" class="me-3" src=""
+                                                                            th:src="@{user/img/man.jpg}">
+                                    <h6>by Thomas</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-news-two">
+                        <img alt="recent-news-img" src="" th:src="@{user/img/recent-news-7.jpg}">
+                        <div class="recent-news mt-3">
+                            <div>
+                                <a href="#"><span>29 December, 2023</span></a>
+                                <a href="blog-details.html"><h2>Operates approximately 400 restaurants</h2></a>
+                                <div class="d-flex align-items-center"><img alt="img" class="me-3" src=""
+                                                                            th:src="@{user/img/man.jpg}">
+                                    <h6>by Thomas</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-news-two">
+                        <img alt="recent-news-img" src="" th:src="@{user/img/recent-news-8.jpg}">
+                        <div class="recent-news mt-3">
+                            <div>
+                                <a href="#"><span>29 December, 2023</span></a>
+                                <a href="blog-details.html"><h2>Eclectic and imaginative menu in the restaurant</h2></a>
+                                <div class="d-flex align-items-center"><img alt="img" class="me-3" src=""
+                                                                            th:src="@{user/img/man.jpg}">
+                                    <h6>by Thomas</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-news-two">
+                        <img alt="recent-news-img" src="" th:src="@{user/img/recent-news-9.jpg}">
+                        <div class="recent-news mt-3">
+                            <div>
+                                <a href="#"><span>29 December, 2023</span></a>
+                                <a href="blog-details.html"><h2>Menus for your event, inspired equally</h2></a>
+                                <div class="d-flex align-items-center"><img alt="img" class="me-3" src=""
+                                                                            th:src="@{user/img/man.jpg}">
+                                    <h6>by Thomassrc="" th:src="@{user</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-news-two">
+                        <img alt="recent-news-img" src="" th:src="@{user/img/recent-news-3.jpg}">
+                        <div class="recent-news mt-3">
+                            <div>
+                                <a href="#"><span>29 December, 2023</span></a>
+                                <a href="blog-details.html"><h2>Flowers, candles and menu cards are provided</h2></a>
+                                <div class="d-flex align-items-center"><img alt="img" class="me-3" src=""
+                                                                            th:src="@{user/img/man.jpg}"><h6>by Thomas
+                                    Walimes</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="pagination">
+                        <li class="prev"><a href="#"><i class="fa-solid fa-angles-left"></i></a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">18</a></li>
+                        <li class="next"><a href="#"><i class="fa-solid fa-angles-right"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-4">
+                    <div class="posts recent-posts">
+                        <h3>Recent Posts</h3>
+                        <ul>
+                            <li>
+                                <img alt="img" src="" th:src="@{user/img/recent-news-blog-1.jpg}">
+                                <div>
+                                    <a href="#">29 December, 2022</a>
+                                    <h6><a href="#">Restaurant Located in on Bank Street</a></h6>
+                                </div>
+                            </li>
+                            <li>
+                                <img alt="img" src="" th:src="@{user/img/recent-news-blog-2.jpg}">
+                                <div>
+                                    <a href="#">29 December, 2022</a>
+                                    <h6><a href="#">There’s only one kind of happiness</a></h6>
+                                </div>
+                            </li>
+                            <li>
+                                <img alt="img" src="" th:src="@{user/img/recent-news-blog-3.jpg}">
+                                <div>
+                                    <a href="#">29 December, 2022</a>
+                                    <h6><a href="#">comes in all shapes and sizes.</a></h6>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="posts">
+                        <h3>Categories</h3>
+                        <ul class="categories">
+                            <li class="pt-0">
+                                <a href="#">food<span>12</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Inspiration<span>13</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Lifestyle<span>19</span></a>
+                            </li>
+                            <li>
+                                <a href="#">People<span>22</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Recipes <span>11</span></a>
+                            </li>
+                            <li>
+                                <a href="#">World<span>08</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="posts Photo">
+                        <h3>Instagram Photos</h3>
+                        <ul class="instagram-posts">
+                            <li>
+                                <a th:href="@{user/img/photo-gallery-1.jpg}" data-fancybox="gallery">
+                                    <figure><img alt="girl" src="" th:src="@{user/img/photo-gallery-1.jpg}"></figure>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{user/img/photo-gallery-2.jpg}" data-fancybox="gallery">
+                                    <figure><img alt="girl" src="" th:src="@{user/img/photo-gallery-2.jpg}"></figure>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{user/img/photo-gallery-3.jpg}" data-fancybox="gallery">
+                                    <figure><img alt="girl" src="" th:src="@{user/img/photo-gallery-3.jpg}"></figure>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{user/img/photo-gallery-4.jpg}" data-fancybox="gallery">
+                                    <figure><img alt="girl" src="" th:src="@{user/img/photo-gallery-4.jpg}"></figure>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{user/img/photo-gallery-5.jpg}" data-fancybox="gallery">
+                                    <figure><img alt="girl" src="" th:src="@{user/img/photo-gallery-5.jpg}"></figure>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{user/img/photo-gallery-6.jpg}" data-fancybox="gallery">
+                                    <figure><img alt="girl" src="" th:src="@{user/img/photo-gallery-6.jpg}"></figure>
+                                </a>
+                            </li>
+                        </ul>
+                        <a href="#">Follow @winsfolio</a>
+                    </div>
+                    <div class="posts">
+                        <h3>Trending Dishes</h3>
+                        <ul class="trending-dishes-list">
+                            <li class="pt-0">
+                                <div class="dishes-list-img">
+                                    <img alt="trending-dishe" src="" th:src="@{user/img/trending-dishe-1.png}">
+                                </div>
+                                <h5><a href="#">Rolls with vermicelli & pickle</a></h5>
+                            </li>
+                            <li>
+                                <div class="dishes-list-img">
+                                    <img alt="trending-dishe" src="" th:src="@{user/img/trending-dishe-2.png}">
+                                </div>
+                                <h5><a href="#">Spicy salad rolls with enoki</a></h5>
+                            </li>
+                            <li>
+                                <div class="dishes-list-img">
+                                    <img alt="trending-dishe" src="" th:src="@{user/img/trending-dishe-3.png}">
+                                </div>
+                                <h5><a href="#">chicken wings served with sriracha</a></h5>
+                            </li>
+                            <li>
+                                <div class="dishes-list-img">
+                                    <img alt="trending-dishe" src="" th:src="@{user/img/trending-dishe-4.png}">
+                                </div>
+                                <h5><a href="#">spicy salad rolls with enoki</a></h5>
+                            </li>
+                            <li>
+                                <div class="dishes-list-img">
+                                    <img alt="trending-dishe" src="" th:src="@{user/img/trending-dishe-5.png}">
+                                </div>
+                                <h5><a href="#">chicken wings served with sriracha</a></h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="posts">
+                        <h3>Quick Links</h3>
+                        <ul class="higher-reach">
+                            <li>
+                                <div class="bol"></div>
+                                <a href="#"> Recent News.</a></li>
+                            <li>
+                                <div class="bol"></div>
+                                <a href="#"> Articles For Food.</a></li>
+                            <li>
+                                <div class="bol"></div>
+                                <a href="#"> Food Menu</a></li>
+                            <li>
+                                <div class="bol"></div>
+                                <a href="#"> Site Map</a></li>
+                            <li>
+                                <div class="bol"></div>
+                                <a href="#"> Contact us</a></li>
+                            <li>
+                                <div class="bol"></div>
+                                <a href="#"> About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

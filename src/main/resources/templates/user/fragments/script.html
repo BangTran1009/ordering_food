@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div th:fragment="script">
+    <script th:src="@{user/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{user/js/preloader.js}"></script>
+
+    <!--=============== Bootstrap Js ===============-->
+    <script th:src="@{user/js/bootstrap.min.js}"></script>
+    <script th:src="@{user/js/owl.carousel.min.js}"></script>
+
+    <!--=============== fancybox ===============-->
+    <script th:src="@{user/js/jquery.fancybox.min.js}"></script>
+    <script th:src="@{user/js/custom.js}"></script>
+
+    <!--=============== Form Script ===============-->
+    <script th:src="@{user/js/contact.js}"></script>
+    <script type="text/javascript" th:src="@{user/js/sweetalert.min.js}"></script>
+
+    <!--=============== voice control ===============-->
+    <script th:src="@{user/js/voice-control.js}"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/user/layouts/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordering Food Website</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <section class="banner" style="background-image:url(/user/img/background.png)">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="title-area-data">
+                        <h2>Our Services</h2>
+                        <p>A magical combination that sent aromas to the taste buds</p>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a th:href="@{index.html}"><i class="fa-solid fa-house"></i>Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">pages</li>
+                        <li class="breadcrumb-item active" aria-current="page">Our Services</li>
+                    </ol>
+                </div>
+                <div class="col-lg-5">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="title-area-img">
+                                <img alt="title-area-img" src="" th:src="@{user/img/title-area-img-1.jpg}">
+                                <img alt="pata" class="pata" src="" th:src="@{user/img/pata.png}">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="title-area-img two">
+                                <img alt="title-area-img" src="" th:src="@{user/img/title-area-img-2.jpg}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gap">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-6">
+                    <div class="parties-events-img">
+                        <img alt="parties-events-img" src="" th:src="@{user/img/parties-events.jpg}">
+                        <img alt="pata" class="pata" src="" th:src="@{user/img/pata.png}">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="parties-events-img">
+                        <img alt="parties-events-img" src="" th:src="@{user/img/parties-events-1.jpg}">
+                        <img alt="pata" class="pata-one" src="" th:src="@{user/img/pata-2.png}">
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="parties-events-text">
+                        <h2>Parties, events and special occasions</h2>
+                        <p>Nisl quam nestibulum ac quam nec odio elementu sceisue the aucan ligula. Orci varius natoque
+                            pena tibus et magnis dis parturient monte nascete ridiculus mus nellentesque habitant moum
+                            ac quam nec odio rbine.</p>
+                        <ul class="quality-foods">
+                            <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>Quality foods natural
+                                gradient</h6></li>
+                            <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>Award-winning Restaurant</h6>
+                            </li>
+                            <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>Healthy Food</h6></li>
+                            <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>individually styled
+                                bedrooms</h6></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container gap no-top">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+                <div class="seated">
+                    <span>Seated (six tables)</span>
+                    <h2 class="timer count-title count-number" data-to="20" data-speed="2000"></h2>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+                <div class="seated">
+                    <span>Seated (one table)</span>
+                    <h2 class="timer count-title count-number" data-to="40" data-speed="2000"></h2>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+                <div class="seated">
+                    <span>Standing</span>
+                    <h2 class="timer count-title count-number" data-to="80" data-speed="2000"></h2>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+                <div class="seated mb-0">
+                    <span>Menus to choose from</span>
+                    <h2 class="timer count-title count-number" data-to="11" data-speed="2000"></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gap no-bottom app-foods" style="background-color :#f5f8fd;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="heading">
+                        <span>Best App For Foods Ordering</span>
+                        <h3>Manage Your Restaurant Anytime! Anywhere!</h3>
+                    </div>
+                    <ul class="higher-reach">
+                        <li>
+                            <div class="bol"></div>
+                            Higher Reach - Minimal Effort
+                        </li>
+                        <li>
+                            <div class="bol"></div>
+                            Showcase your Brand
+                        </li>
+                        <li>
+                            <div class="bol"></div>
+                            Exclusive offers & discounts
+                        </li>
+                    </ul>
+                    <div class="d-sm-flex mt-5">
+                        <a href="#">
+                            <div class="download-from">
+                                <i class="fa-brands fa-google-play"></i>
+                                <div>
+                                    <span>Download From</span>
+                                    <h5>Google Play</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="download-from apple">
+                                <i class="fa-brands fa-apple"></i>
+                                <div>
+                                    <span>Download From</span>
+                                    <h5>App Store</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="manage-your-img">
+                        <img alt="manage-your" src="" th:src="@{user/img/manage-your.png}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container gap">
+        <div class="heading-two">
+            <h2>Photos Gallery</h2>
+            <div class="line"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="photo-gallery">
+                    <div class="featured-imagebox featured-imagebox-gallery">
+                        <a th:href="@{user/img/photo-gallery-6.jpg}" data-fancybox="gallery">
+                            <div class="featured-link">
+                                <div class="featured-thumbnail">
+                                    <img class="img-fluid" src="" th:src="@{user/img/photo-gallery-6.jpg}"
+                                         alt="gallery-img">
+                                </div>
+                                <div class="featured-overlay"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="photo-gallery">
+                    <div class="featured-imagebox featured-imagebox-gallery">
+                        <a th:href="@{user/img/photo-gallery-7.jpg}" data-fancybox="gallery">
+                            <div class="featured-link">
+                                <div class="featured-thumbnail">
+                                    <img class="img-fluid" src="" th:src="@{user/img/photo-gallery-7.jpg}"
+                                         alt="gallery-img">
+                                </div>
+                                <div class="featured-overlay"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="photo-gallery">
+                    <div class="featured-imagebox featured-imagebox-gallery">
+                        <a th:href="@{user/img/photo-gallery-8.jpg}" data-fancybox="gallery">
+                            <div class="featured-link">
+                                <div class="featured-thumbnail">
+                                    <img class="img-fluid" src="" th:src="@{user/img/photo-gallery-8.jpg}"
+                                         alt="gallery-img">
+                                </div>
+                                <div class="featured-overlay"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="photo-gallery">
+                    <div class="featured-imagebox featured-imagebox-gallery">
+                        <a th:href="@{user/img/photo-gallery-9.jpg}" data-fancybox="gallery">
+                            <div class="featured-link">
+                                <div class="featured-thumbnail">
+                                    <img class="img-fluid" src="" th:src="@{user/img/photo-gallery-9.jpg}"
+                                         alt="gallery-img">
+                                </div>
+                                <div class="featured-overlay"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="photo-gallery">
+                    <div class="featured-imagebox featured-imagebox-gallery">
+                        <a th:href="@{user/img/photo-gallery-10.jpg}" data-fancybox="gallery">
+                            <div class="featured-link">
+                                <div class="featured-thumbnail">
+                                    <img class="img-fluid" src="" th:src="@{user/img/photo-gallery-10.jpg}"
+                                         alt="gallery-img">
+                                </div>
+                                <div class="featured-overlay"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="photo-gallery">
+                    <div class="featured-imagebox featured-imagebox-gallery">
+                        <a th:href="@{user/img/photo-gallery-12.jpg}" data-fancybox="gallery">
+                            <div class="featured-link">
+                                <div class="featured-thumbnail">
+                                    <img class="img-fluid" src="" th:src="@{user/img/photo-gallery-12.jpg}"
+                                         alt="gallery-img">
+                                </div>
+                                <div class="featured-overlay"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gap" style="background-image: url(/user/img/reserve-a-table.jpg)">
+        <div class="container best-food-restaurants">
+            <form class="reserve-a-table">
+                <h4>Reserve a Table</h4>
+                <label for="numberGuest"></label>
+                <input type="number" id="numberGuest" name="No of Guest" placeholder="No of Guest">
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <label for="name"></label>
+                        <input type="text" id="name" name="Complete Name" placeholder="Complete Name">
+                    </div>
+                    <div class="col-xl-6">
+                        <label for="phone"></label>
+                        <input type="text" id="phone" name="phone no" placeholder="phone no">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <label for="day"></label>
+                        <input type="date" id="day" name="day">
+                    </div>
+                    <div class="col-xl-6">
+                        <label for="time"></label>
+                        <input type="time" id="time" name="time">
+                    </div>
+                </div>
+                <button class="button">Reserve a Table</button>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>
