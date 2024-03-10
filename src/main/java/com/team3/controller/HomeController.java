@@ -36,4 +36,9 @@ public class HomeController {
     public String checkOut() {
         return "user/cart-checkout";
     }
+
+    @GetMapping("/admin")
+    public String adminHome() {
+        return "admin/index";
+    }
 }

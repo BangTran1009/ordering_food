@@ -23,5 +23,5 @@ public class Cart {
     private Users user;
 
     @ManyToMany(mappedBy = "cartItem")
-    Set<Products> products;
+    Set<Product> products;
 }

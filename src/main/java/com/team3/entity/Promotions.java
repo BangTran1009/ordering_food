@@ -22,5 +22,5 @@ public class Promotions {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id", referencedColumnName = "id")
-    private Products product;
+    private Product product;
 }

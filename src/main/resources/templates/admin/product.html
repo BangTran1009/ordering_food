@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/admin/layouts/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordering Food Website</title>
+</head>
+<body>
+<div class="content-body" layout:fragment="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Danh sách món ăn</h4>
+                        <a th:href="@{/admin/product/add}" type="button" class="btn btn-rounded btn-info">
+                            <span class="btn-icon-start text-info">
+                                <i class="fa fa-plus color-info"></i>
+                            </span>Thêm món ăn
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example3" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Ảnh</th>
+                                        <th>Tên</th>
+                                        <th>Giá thành</th>
+                                        <th>Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="product: ${products}">
+                                        <td th:text="${product.id}"></td>
+                                        <td><img class="rounded-circle" width="35" th:src="${product.imgUrl}" src="" alt=""></td>
+                                        <td th:text="${product.name}"></td>
+                                        <td th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT') + 'đ'}"></td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a th:href="@{/admin/product/edit/{id}(id=${product.id})}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

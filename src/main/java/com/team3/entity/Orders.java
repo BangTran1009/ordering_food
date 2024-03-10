@@ -1,6 +1,6 @@
 package com.team3.entity;
 
-import com.team3.entity.enumType.Status;
+import com.team3.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

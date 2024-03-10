@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="deznav" th:fragment="sidebar">
+        <div class="deznav-scroll">
+            <ul class="metismenu" id="menu">
+                <li>
+                    <a th:href="@{/admin}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-025-dashboard"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/admin/product}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-036-floppy-disk"></i>
+                        <span class="nav-text">Sản phẩm</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
