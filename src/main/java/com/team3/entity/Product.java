@@ -16,10 +16,17 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable=false, unique=true)
     private String name;
+    @Column(nullable=false, unique=true)
+    private String slug;
+    @Column(nullable = false)
     private int price;
+    @Column(length = 1000, nullable = false)
     private String description;
+    @Column(nullable = false)
     private String audioUrl;
+    @Column(nullable = false)
     private String imgUrl;
 
     @ManyToMany

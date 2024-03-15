@@ -7,19 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-    @GetMapping
+    @GetMapping("home")
     public String home() {
         return "user/index";
-    }
-
-    @GetMapping("/shop")
-    public String shop() {
-        return "user/shop";
-    }
-
-    @GetMapping("/product-details")
-    public String productDetails() {
-        return "user/product-details";
     }
 
     @GetMapping("/cart")

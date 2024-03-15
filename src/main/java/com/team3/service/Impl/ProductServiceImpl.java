@@ -1,63 +1,85 @@
 package com.team3.service.Impl;
 
-import com.team3.dto.ProductDTO;
+import com.team3.dto.requests.CreateProductDTO;
+import com.team3.dto.requests.UpdateProductDTO;
+import com.team3.dto.responses.ProductResponseDTO;
 import com.team3.entity.Product;
+import com.team3.mappers.ProductMapper;
 import com.team3.repository.IProductRepository;
 import com.team3.service.ICloudinaryService;
 import com.team3.service.IProductService;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
+import lombok.experimental.FieldDefaults;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ProductServiceImpl implements IProductService {
-    private final IProductRepository productRepository;
-    private final ModelMapper modelMapper;
-    private final ICloudinaryService cloudinaryService;
+
+    IProductRepository productRepository;
+    ProductMapper productMapper;
+    ICloudinaryService cloudinaryService;
 
     @Override
-    public void save(ProductDTO productDTO) {
-        try {
-            if (productDTO.getId() == null) {
-                Product product = modelMapper.map(productDTO, Product.class);
-                product.setImgUrl(cloudinaryService.uploadFile(productDTO.getFile(), "product"));
-                productRepository.save(product);
-            } else {
-                Product existingProduct = productRepository.findById(productDTO.getId())
-                        .orElseThrow(() -> new IllegalArgumentException("Invalid product Id:" + productDTO.getId()));
-                existingProduct.setName(productDTO.getName());
-                existingProduct.setPrice(productDTO.getPrice());
-                existingProduct.setDescription(productDTO.getDescription());
-                existingProduct.setAudioUrl(productDTO.getAudioUrl());
-                if (productDTO.getFile().isEmpty()) {
-                    existingProduct.setImgUrl(existingProduct.getImgUrl());
-                } else {
-                    existingProduct.setImgUrl(cloudinaryService.uploadFile(productDTO.getFile(), "product"));
-                }
-                productRepository.save(existingProduct);
-            }
+    public void create(CreateProductDTO productDTO) {
+        Product product = productMapper.toProduct(productDTO);
+        product.setImgUrl(cloudinaryService.uploadFile(productDTO.getFile(), "product"));
+        product.setAudioUrl(cloudinaryService.uploadFile(productDTO.getAudioFile(), "audio") + ".mp3");
+        productRepository.save(product);
+    }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+    @Override
+    public void update(UpdateProductDTO updateProductDTO) {
+        Product product = productMapper.toProduct(updateProductDTO);
+        // Product updateProduct = productMapper.updateProduct(updateProductDTO, product);
+
+        if (!updateProductDTO.getFile().isEmpty()) {
+            product.setImgUrl(cloudinaryService.uploadFile(updateProductDTO.getFile(), "product"));
         }
+        if (!updateProductDTO.getAudioFile().isEmpty()) {
+            product.setAudioUrl(cloudinaryService.uploadFile(updateProductDTO.getAudioFile(), "audio") + ".mp3");
+        }
+
+        productRepository.save(product);
     }
 
     @Override
-    public List<ProductDTO> getAll() {
+    public List<ProductResponseDTO> getAll() {
         List<Product> products = productRepository.findAll();
-        return products.stream().map((product) -> modelMapper.map(product, ProductDTO.class))
-                .collect(Collectors.toList());
+        return productMapper.mapToProductResponseDTO(products);
     }
 
     @Override
-    public ProductDTO getById(Long id) {
-        Optional<Product> product = productRepository.findById(id);
-        return modelMapper.map(product, ProductDTO.class);
+    public Page<Product> getAll(String keyword, int pageNo) {
+        Pageable pageable = PageRequest.of(pageNo - 1, 3);
+        if (keyword == null || keyword.equals("")) {
+            return productRepository.findAll(pageable);
+        }
+        List<Product> products = productRepository.findProducts(keyword);
+        int start = (int) pageable.getOffset();
+        int end = Math.min((int) (pageable.getOffset() + pageable.getPageSize()), products.size());
+        products = products.subList(start, end);
+        return new PageImpl<>(products, pageable, products.size());
+    }
+
+    @Override
+    public ProductResponseDTO getById(Long id) {
+        return productMapper.toProductResponse(productRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Product not found")));
+    }
+
+    @Override
+    public ProductResponseDTO findBySlug(String slug) {
+        return productMapper.toProductResponse(productRepository.findBySlug(slug));
     }
 
     @Override

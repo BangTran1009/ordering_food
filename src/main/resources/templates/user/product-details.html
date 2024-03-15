@@ -6,7 +6,7 @@
     <title>Ordering Food Website</title>
 </head>
 <body>
-<main layout:fragment="content">
+<main layout:fragment="content" th:object="${product}">
     <section class="banner" style="background-image:url(/user/img/background.png)">
         <div class="container">
             <div class="row align-items-center">
@@ -17,23 +17,23 @@
                     </div>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a th:href="@{index.html}"><i class="fa-solid fa-house"></i>Home</a>
+                            <a th:href="@{/}"><i class="fa-solid fa-house"></i>Trang Chủ</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Shop</li>
-                        <li class="breadcrumb-item active" aria-current="page">Product Details</li>
+                        <li class="breadcrumb-item active" aria-current="page">Của Hàng</li>
+                        <li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm</li>
                     </ol>
                 </div>
                 <div class="col-lg-5">
                     <div class="row">
                         <div class="col-6">
                             <div class="title-area-img">
-                                <img alt="title-area-img" src="" th:src="@{user/img/title-area-img-1.jpg}">
-                                <img alt="pata" class="pata" src="" th:src="@{user/img/pata.png}">
+                                <img alt="title-area-img" src="" th:src="@{/user/img/title-area-img-1.jpg}">
+                                <img alt="pata" class="pata" src="" th:src="@{/user/img/pata.png}">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="title-area-img two">
-                                <img alt="title-area-img" src="" th:src="@{user/img/title-area-img-2.jpg}">
+                                <img alt="title-area-img" src="" th:src="@{/user/img/title-area-img-2.jpg}">
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
         </div>
     </section>
 
-    <section class="gap featured-dishes-product-detail-img">
+    <section class="gap featured-dishes-product-detail-img" >
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-6">
@@ -51,7 +51,7 @@
                             <h6>Sale</h6>
                         </div>
                         <div class="featured-dishes-img">
-                            <img alt="featured-dishes" src="" th:src="@{user/img/product-detail-1.png}">
+                            <img alt="featured-dishes" src="" th:src="*{imgUrl}">
                         </div>
                     </div>
                 </div>
@@ -69,20 +69,25 @@
                     </div>
 
                     <div class="product-info ">
-                        <h3>Fried Potatoes With Garlic Chilli Sauce</h3>
+                        <h3 th:text="*{name}"></h3>
+
                         <form class="variations_form">
-                            <div class="deal-week mb-4 d-flex align-items-center"><h2 class="m-0"><span>$</span>10.85
-                            </h2>
+                            <div class="deal-week mb-4 d-flex align-items-center">
+                                <h2 th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT') + 'đ'}" class="m-0"></h2>
                                 <del>$14.85</del>
                             </div>
+
                             <h5>What’s Included</h5>
+
                             <p>Sausage, three rashers of streaky bacon, two fried eggs</p>
+
                             <div class="d-flex align-items-center mt-4">
                                 <label for="number"></label>
                                 <input type="number" id="number" class="input-text me-4" step="1" min="1"
                                        name="quantity" value="1">
                                 <button class="button">Add to Cart</button>
                             </div>
+
                             <ul class="product_meta">
                                 <li><span class="theme-bg-clr">Tags:</span>
                                     <ul class="pd-tag">
@@ -103,42 +108,22 @@
 
     <section class="about-chef">
         <div class="container">
-            <h2 class="pb-3">Description</h2>
-            <p>
-                Nisl quam nestibulum ac quam nec odio elementu sceisu aucan ligula. Orci varius natoque pena tibus et
-                magnis dis urient monte ulus mus nellent
-                esque habitanum ac quam nec odio rbine. Nisl quam nestibulum ac quam nec odio elementu sceisu aucan
-                ligula. toque pena tibus et magnis dis u
-                rient monte nascete ridic ulus mus nellentesque habitanum ac quam nec odio rbine. Nisl quamu quam nec
-                odio elementu sceisu aucan ligula. Orc
-                i varius natoque pena tibus et magnis dis urient monte nascete ridic ulus mus a habitanum ac quam nec
-                odio rbine. Nisl quam nestibulum ac qua
-                m nec odio elementu sceisu aucan ligula. Orci varius natoque pe magnis dis urient monte nascete
-                ridiculus mus nellentesque habitanum ac quam
-                nec odio rbine. Nisl quam nestibulum ac quam ntoque pena tibus et magnis dis urient monte nascete ridic
-                ulus mus nellentesque habitanum ac
-                quam nec odio rbine. Nisl quam a quam nec odio elementu sceisu aucan ligula. Orci varius natoque pena
-                tibus et magnis dis urient monte nascet
-                e ridic ulus mus n habitanum ac quam nec odio rbine.<br><br>
-
-                Nisl quam nestibulum ac quam nec odio elementu sceisu aucan ligula. Orci varius natoque pena tibus et
-                magnis dis urient monte quam nec odio e
-                lementu sceisu aucan ligula. Orci varius natoque pena tibus et magnis dis urient monte nascete ridic.
-            </p>
+            <h2 class="pb-3">Mô tả</h2>
+            <p th:text="*{description}"></p>
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="product-img">
-                        <img alt="product-img" src="" th:src="@{user/img/product-2.jpg}">
+                        <img alt="product-img" src="" th:src="@{/user/img/product-2.jpg}">
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="product-img">
-                        <img alt="product-img" src="" th:src="@{user/img/product-3.jpg}">
+                        <img alt="product-img" src="" th:src="@{/user/img/product-3.jpg}">
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="product-img">
-                        <img alt="product-img" src="" th:src="@{user/img/product-4.jpg}">
+                        <img alt="product-img" src="" th:src="@{/user/img/product-4.jpg}">
                     </div>
                 </div>
             </div>
@@ -151,23 +136,23 @@
                 <div>
                     <h2 class="pb-3">Benefits</h2>
                     <ul class="quality-foods">
-                        <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>Quality foods natural gradient</h6>
+                        <li><img alt="img" src="" th:src="@{/user/img/check.png}"><h6>Quality foods natural gradient</h6>
                         </li>
-                        <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>A melting pot of cheese served with
+                        <li><img alt="img" src="" th:src="@{/user/img/check.png}"><h6>A melting pot of cheese served with
                             our Little Soul</h6></li>
-                        <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>Award-winning Restaurant</h6></li>
-                        <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>caramelised balsamic onions</h6>
+                        <li><img alt="img" src="" th:src="@{/user/img/check.png}"><h6>Award-winning Restaurant</h6></li>
+                        <li><img alt="img" src="" th:src="@{/user/img/check.png}"><h6>caramelised balsamic onions</h6>
                         </li>
-                        <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>Healthy Food 100% Organic Food</h6>
+                        <li><img alt="img" src="" th:src="@{/user/img/check.png}"><h6>Healthy Food 100% Organic Food</h6>
                         </li>
-                        <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>roasted on a skewer, hanging above
+                        <li><img alt="img" src="" th:src="@{/user/img/check.png}"><h6>roasted on a skewer, hanging above
                             a spicy chilli seafood</h6></li>
-                        <li><img alt="img" src="" th:src="@{user/img/check.png}"><h6>individually styled bedrooms</h6>
+                        <li><img alt="img" src="" th:src="@{/user/img/check.png}"><h6>individually styled bedrooms</h6>
                         </li>
                     </ul>
                 </div>
                 <div class="benefit-img">
-                    <img alt="benefit" src="" th:src="@{user/img/benefit.png}">
+                    <img alt="benefit" src="" th:src="@{/user/img/benefit.png}">
                 </div>
             </div>
         </div>
@@ -178,7 +163,7 @@
             <div class="review">
                 <h3>Review</h3>
                 <div class="single-comment">
-                    <img alt="img" src="" th:src="@{user/img/review.jpg}">
+                    <img alt="img" src="" th:src="@{/user/img/review.jpg}">
                     <div class="ps-md-4">
                         <div class="d-flex align-items-center">
                             <h4>Smith Johnson</h4>
@@ -196,7 +181,7 @@
                     </ul>
                 </div>
                 <div class="single-comment">
-                    <img alt="img" src="" th:src="@{user/img/review.jpg}">
+                    <img alt="img" src="" th:src="@{/user/img/review.jpg}">
                     <div class="ps-md-4">
                         <div class="d-flex align-items-center">
                             <h4>Smith Johnson</h4>

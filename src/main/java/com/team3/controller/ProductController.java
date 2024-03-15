@@ -1,41 +1,52 @@
 package com.team3.controller;
 
-import com.team3.dto.ProductDTO;
+import com.team3.dto.requests.CreateProductDTO;
+import com.team3.dto.requests.UpdateProductDTO;
+import com.team3.mappers.ProductMapper;
 import com.team3.service.IProductService;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequestMapping("/admin/product")
 public class ProductController {
-    private final IProductService productService;
+
+    IProductService productService;
+    ProductMapper productMapper;
 
     @GetMapping
-    public String getAll(Model model) {
+    public String showProducts(Model model) {
         model.addAttribute("products", productService.getAll());
         return "admin/product";
     }
 
-    @GetMapping("/add")
-    public String addProduct(Model model) {
-        model.addAttribute("productDTO", new ProductDTO());
-        model.addAttribute("isUpdating", false);
-        return "admin/product-form";
+    @GetMapping("/new")
+    public String showCreateForm(Model model) {
+        model.addAttribute("product", new CreateProductDTO());
+        return "admin/product-new";
     }
 
-    @GetMapping("/edit/{id}")
-    public String editProduct(@PathVariable(value = "id") Long id, Model model) {
-        model.addAttribute("productDTO", productService.getById(id));
-        model.addAttribute("isUpdating", true);
-        return "admin/product-form";
+    @PostMapping("/new")
+    public String create(@ModelAttribute("product") CreateProductDTO productDTO) {
+        productService.create(productDTO);
+        return "redirect:/admin/product";
     }
 
-    @PostMapping("/save")
-    public String saveProduct(@ModelAttribute("productDTO") ProductDTO productModel) {
-        productService.save(productModel);
+    @GetMapping("/update/{slug}")
+    public String showUpdateForm(@PathVariable String slug, Model model) {
+        model.addAttribute("productUpdate", productMapper.toUpdate(productService.findBySlug(slug)));
+        return "admin/product-update";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute("productUpdate") UpdateProductDTO updateProductDTO) {
+        productService.update(updateProductDTO);
         return "redirect:/admin/product";
     }
 

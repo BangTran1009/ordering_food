@@ -13,7 +13,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Danh sách món ăn</h4>
-                        <a th:href="@{/admin/product/add}" type="button" class="btn btn-rounded btn-info">
+                        <a th:href="@{/admin/product/new}" type="button" class="btn btn-rounded btn-info">
                             <span class="btn-icon-start text-info">
                                 <i class="fa fa-plus color-info"></i>
                             </span>Thêm món ăn
@@ -39,7 +39,7 @@
                                         <td th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT') + 'đ'}"></td>
                                         <td>
                                             <div class="d-flex">
-                                                <a th:href="@{/admin/product/edit/{id}(id=${product.id})}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a th:href="@{/admin/product/update/{slug}(slug=${product.slug})}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
                                                 <a th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
